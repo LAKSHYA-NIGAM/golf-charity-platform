@@ -1,5 +1,8 @@
 # ⛳ GreenHeart — Golf for Good
 
+🔥 **Live Demo:** [https://frontend-lto37lvae-lakshya-nigams-projects.vercel.app](https://frontend-lto37lvae-lakshya-nigams-projects.vercel.app)  
+⚙️ **Live API:** [https://greenheart-backend-zeta.vercel.app/api/health](https://greenheart-backend-zeta.vercel.app/api/health)
+
 A full-stack subscription platform where golfers enter monthly prize draws while
 directing real charitable funding to causes they care about.
 
