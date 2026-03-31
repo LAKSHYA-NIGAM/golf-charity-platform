@@ -6,7 +6,11 @@ node_modules/
 .env
 .env.local
 .env.production
+.env.vercel
 backend/.env
+backend/.env.vercel
+backend/_tmp_env.txt
+backend/env_list.txt
 frontend/.env
 
 # Build output
