@@ -123,6 +123,18 @@ if (isConfigured) {
   app.use('/api', demoRouter)
 }
 
+// ─── Root route (friendly landing for the API) ───
+app.get('/', (req, res) => {
+  res.json({
+    name: 'GreenHeart API',
+    status: 'running',
+    version: '1.0.0',
+    mode: isConfigured ? 'live' : 'demo',
+    health: '/api/health',
+    docs: 'https://github.com/LAKSHYA-NIGAM/golf-charity-platform',
+  })
+})
+
 // ─── 404 Handler ───
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found', path: req.originalUrl })
