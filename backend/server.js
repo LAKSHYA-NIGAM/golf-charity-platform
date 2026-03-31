@@ -135,6 +135,16 @@ app.get('/', (req, res) => {
   })
 })
 
+// ─── Root-level health check alias ───
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    mode: isConfigured ? 'live' : 'demo',
+    timestamp: new Date().toISOString(),
+    environment: (process.env.NODE_ENV || 'development').replace(/[\r\n\t]/g, '').trim(),
+  })
+})
+
 // ─── 404 Handler ───
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found', path: req.originalUrl })
