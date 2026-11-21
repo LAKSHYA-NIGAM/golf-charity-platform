@@ -160,11 +160,28 @@ app.use((err, req, res, next) => {
 })
 
 // ─── Start Server ───
-app.listen(PORT, () => {
-  console.log(`\n🌿 GreenHeart API running on port ${PORT}`)
-  console.log(`   Mode: ${isConfigured ? 'LIVE' : 'DEMO'}`)
-  console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`)
-  console.log(`   Health: http://localhost:${PORT}/api/health\n`)
-})
+let server = null;
+if (require.main === module) {
+  server = app.listen(PORT, () => {
+    console.log('\\n🌿 GreenHeart API running on port ' + PORT);
+    console.log('   Mode: ' + (isConfigured ? 'LIVE' : 'DEMO'));
+    console.log('   Environment: ' + (process.env.NODE_ENV || 'development'));
+    console.log('   Health: http://localhost:' + PORT + '/api/health\\n');
+  });
+
+  const shutdown = () => {
+    console.log('\n🌿 Gracefully shutting down GreenHeart API server...');
+    if (server) {
+      server.close(() => {
+        console.log('Server connections closed. Exiting process.');
+        process.exit(0);
+      });
+    } else {
+      process.exit(0);
+    }
+  };
+  process.on('SIGINT', shutdown);
+  process.on('SIGTERM', shutdown);
+}
 
 module.exports = app
