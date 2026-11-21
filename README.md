@@ -1,5 +1,7 @@
 # ⛳ GreenHeart — Golf for Good
 
+[![CI](https://github.com/LAKSHYA-NIGAM/golf-charity-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/LAKSHYA-NIGAM/golf-charity-platform/actions/workflows/ci.yml)
+
 🔥 **Live Demo:** [https://frontend-lto37lvae-lakshya-nigams-projects.vercel.app](https://frontend-lto37lvae-lakshya-nigams-projects.vercel.app)  
 ⚙️ **Live API:** [https://greenheart-backend-zeta.vercel.app/api/health](https://greenheart-backend-zeta.vercel.app/api/health)
 
@@ -74,6 +76,26 @@ npm run dev
 |-------------|------------------------|-----------|
 | Admin       | admin@greenheart.io    | admin123  |
 | Subscriber  | (register a new account) |          |
+
+---
+
+## Automated Testing & Quality Assurance
+
+The platform includes automated Jest test suites for backend lottery calculations, auth authorization guards, and input validation.
+
+```bash
+# Run backend test suite
+cd backend
+npm test
+
+# Run all tests from root
+npm test
+```
+
+### Test Suite Coverage
+- **`drawEngine.test.js`**: Number generation uniqueness (5 distinct balls 1-45), ascending order sort, match counting logic, 40% jackpot allocation, rollover jackpot calculation when no 5-match winner exists, 35% tier (4-match) and 25% tier (3-match) split calculations.
+- **`authMiddleware.test.js`**: Admin role authorization enforcement, active subscription guard (blocking canceled/pending subscriptions).
+- **`validation.test.js`**: Zod validation schemas for golf score bounds (1-45), ISO date formatting, registration credentials, and plan selection.
 
 ---
 
