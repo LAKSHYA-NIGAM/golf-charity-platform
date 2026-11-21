@@ -96,6 +96,8 @@ npm test
 - **`drawEngine.test.js`**: Number generation uniqueness (5 distinct balls 1-45), ascending order sort, match counting logic, 40% jackpot allocation, rollover jackpot calculation when no 5-match winner exists, 35% tier (4-match) and 25% tier (3-match) split calculations.
 - **`authMiddleware.test.js`**: Admin role authorization enforcement, active subscription guard (blocking canceled/pending subscriptions).
 - **`validation.test.js`**: Zod validation schemas for golf score bounds (1-45), ISO date formatting, registration credentials, and plan selection.
+- **`golfScoring.test.js`**: Stableford points calculation, Gross-to-Net conversions, Hole Handicap Index stroke allocations for standard and high handicap players, and round-level net-to-par evaluation.
+- **`taxReceipt.test.js`**: Fair Market Value (FMV) deduction adjustments for tournament tickets, UK HMRC Gift Aid 25% reclaim calculation, and IRS 501(c)(3) compliant tax receipt generation.
 
 ---
 
